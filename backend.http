@@ -1,0 +1,36 @@
+@jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMDI1NTM2NCwianRpIjoiOGUyMzkzNWItY2E5ZS00NDA0LTkxOWQtYjAyNTU3OGYxNGE3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzIwMjU1MzY0LCJjc3JmIjoiZGQxMjg4YmYtNWVhYy00NzllLWI1ODAtYWY2MGNmZjRkZThkIiwiZXhwIjoxNzIwMjU2MjY0fQ.04bskamXhwWze7Mj5j7l7wY46f-Dos-a3aBSUs-RBMU
+
+### Register a new user
+POST http://auth.local/api/register
+Content-Type: application/json
+
+{
+  "username": "test",
+  "password": "test",
+  "real_name": "Test User",
+  "email": "testuser4@example.com",
+  "phone": "1234567890"
+}
+
+### Login with the user
+POST http://auth.local/api/login
+Content-Type: application/json
+
+{
+  "username": "testuser2",
+  "password": "testpassword"
+}
+
+### Get user profile (JWT required)
+GET http://auth.local/api/profile
+Authorization: Bearer {{jwt}}
+
+### Update user profile (JWT required)
+PUT http://auth.local/api/profile
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "real_name": "Updated User2",
+  "phone": "222222"
+}
