@@ -63,13 +63,13 @@ project/
 3. Build and start the containers:
 
    ```bash
-   docker-compose up --build
+   docker compose up --build
    ```
 
    after everything up please run migrate
 
    ```bash
-   compose exec -it backend bash
+   docker compose exec -it backend bash
    flask db upgrade
    ```
 
@@ -82,10 +82,10 @@ project/
 
 The backend is a Flask application that provides the following endpoints:
 
-POST /register: Register a new user
-POST /login: Login a user
-GET /profile: Get user profile (JWT required)
-PUT /profile: Update user profile (JWT required)
+- POST /register: Register a new user
+- POST /login: Login a user
+- GET /profile: Get user profile (JWT required)
+- PUT /profile: Update user profile (JWT required)
 
 ### Frontend
 
